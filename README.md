@@ -1,2 +1,2 @@
 # Car_Recomendation
-aplikasi rekomendasi mobil mobile
+aplikasi rekomendasi mobil Android
