@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Override colors for dark mode -->
+    <color name="background_light">#121212</color>
+    <color name="surface_light">#1E1E1E</color>
+    <color name="text_primary_light">#FFFFFF</color>
+    <color name="text_secondary_light">#CCCCCC</color>
+    <color name="card_background_light">#2D2D2D</color>
+    <color name="input_background_light">#3A3A3A</color>
+    <color name="border_color_light">#404040</color>
+
+    <!-- Keep primary colors consistent -->
+    <color name="dark_blue">#1976D2</color>
+    <color name="primary_blue">#1976D2</color>
+
+    <!-- Profile specific colors for dark mode -->
+    <color name="profile_name_text">#000000</color>
+    <color name="profile_email_text">#666666</color>
+</resources>

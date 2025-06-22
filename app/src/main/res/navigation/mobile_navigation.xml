@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <!-- Home Fragment -->
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.carrecomendations.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <!-- Search Fragment -->
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.carrecomendations.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" >
+        <!-- Action ke halaman hasil pencarian -->
+        <action
+            android:id="@+id/action_searchFragment_to_searchResultsFragment"
+            app:destination="@id/searchResultsFragment" />
+    </fragment>
+
+    <!-- Search Results Fragment -->
+    <fragment
+        android:id="@+id/searchResultsFragment"
+        android:name="com.example.carrecomendations.ui.search.SearchResultsFragment"
+        android:label="Hasil Pencarian"
+        tools:layout="@layout/fragment_search_results">
+        <argument
+            android:name="searchResults"
+            app:argType="com.example.carrecomendations.ui.home.Car[]" />
+        <argument
+            android:name="searchQuery"
+            app:argType="string" />
+        <argument
+            android:name="searchType"
+            app:argType="string" />
+        <argument
+            android:name="minPrice"
+            app:argType="integer" />
+        <argument
+            android:name="maxPrice"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_searchResultsFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <!-- Favorites Fragment -->
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.example.carrecomendations.ui.favorites.FavoritesFragment"
+        android:label="@string/title_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_navigation_favorites_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <!-- Profile Fragment (Beserta alur edit profil) -->
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.carrecomendations.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.carrecomendations.ui.detail.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="carData"
+            app:argType="com.example.carrecomendations.ui.home.Car" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.carrecomendations.ui.profile.EditProfileFragment"
+        android:label="Edit Profil"
+        tools:layout="@layout/fragment_edit_profile">
+        <action
+            android:id="@+id/action_editProfileFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.example.carrecomendations.ui.profile.SuccessFragment"
+        android:label="Berhasil"
+        tools:layout="@layout/fragment_success">
+        <action
+            android:id="@+id/action_successFragment_to_profileFragment"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_profile"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>
